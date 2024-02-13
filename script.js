@@ -2,21 +2,28 @@ const pokeBox = document.querySelector('#pokeBox');
 const pokeSize = 1150;
 
 const colors = {
-    fire: '#FDDFDF',
-    grass: '#DEFDE0',
-    electric: '#FCF7DE',
-    water: '#DEF3FD',
-    ground: '#f4e7da',
-    rock: '#d5d5d4',
+    fire: '#FFA07A',
+    grass: '#98D2A3',
+    electric: '#FFE082',
+    water: '#87CEEB',
+    ground: '#D2691E',  // Um pouquinho mais escura para ground
+    rock: '#D2B48C',     // Marrom clarinho para rock
     fairy: '#fceaff',
-    poison: '#98d7a5',
-    bug: '#f8d5a3',
+    poison: '#D8BFD8',
+    bug: '#D8F8D8',
     dragon: '#97b3e6',
-    psychic: '#eaeda1',
-    flying: '#F5F5F5',
-    fighting: '#E6E0D4',
-    normal: '#F5F5F5'
+    psychic: '#FFB6C1',
+    flying: '#ADD8E6',
+    fighting: '#CD5C5C',
+    normal: '#F5F5F5',
+    ice: '#B0E0E6',       // Cor de gelo para ice
+    ghost: '#7b62a3',
+    steel: '#B8B8D0',
+    dark: '#708090'
 }
+
+
+
 
 const pokeTypes = Object.keys(colors);
 
