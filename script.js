@@ -27,10 +27,22 @@ const colors = {
 
 const pokeTypes = Object.keys(colors);
 
+let pokemons = [];
+
 const fetchPokemon = async () => {
     for (let i = 1; i <= pokeSize; i++) {
-        await getPokemon(i);
+        const pokemon = await getPokemon(i);
+        pokemons.push(pokemon);
     }
+    displayFilteredPokemon(pokemons);
+}
+
+const displayFilteredPokemon = (filteredPokemon) => {
+    pokeBox.innerHTML = '';
+
+    filteredPokemon.forEach(pokemon => {
+        createPokeCard(pokemon);
+    });
 }
 
 const getPokemon = async (id) => {
@@ -38,6 +50,7 @@ const getPokemon = async (id) => {
     const res = await fetch(url);
     const data = await res.json();
     createPokeCard(data);
+    return data;
 }
 
 const createPokeCard = (poke) => {
@@ -64,5 +77,22 @@ const createPokeCard = (poke) => {
     pokeEl.innerHTML = pokeInnerHTML;
     pokeBox.appendChild(pokeEl);
 }
+
+const searchPokemon = () => {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const filteredPokemon = pokemons.filter(pokemon => {
+        return (
+            pokemon.name.toLowerCase().includes(searchTerm) ||
+            pokemon.id.toString().includes(searchTerm)
+        );
+    });
+
+    displayFilteredPokemon(filteredPokemon);
+}
+
+document.querySelector('h1').addEventListener('click', function() {
+    location.reload();
+});
+
 
 fetchPokemon();
