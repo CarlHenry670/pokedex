@@ -82,18 +82,20 @@ const createPokeCard = (poke) => {
 
 
 
-
 const searchPokemon = () => {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filteredPokemon = pokemons.filter(pokemon => {
-        return (
-            pokemon.name.toLowerCase().includes(searchTerm) ||
-            pokemon.id.toString().includes(searchTerm)
-        );
-    });
-
-    displayFilteredPokemon(filteredPokemon);
+    const foundPokemon = pokemons.find(pokemon => (
+        pokemon.name.toLowerCase().includes(searchTerm) ||
+        pokemon.id.toString().includes(searchTerm)
+    ));
+    pokeBox.innerHTML = '';
+    if (foundPokemon) {
+        createPokeCard(foundPokemon);
+    } else {
+        displayFilteredPokemon(pokemons);
+    }
 }
+
 
 document.querySelector('h1').addEventListener('click', function() {
     location.reload();
