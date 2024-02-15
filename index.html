@@ -11,6 +11,15 @@
 
 <body>
 
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="pokemon-info" id="pokemonInfo"></div>
+            <div class="moves-list" id="movesList"></div>
+        </div>
+    </div>
+    
+    
     <h1>Pokedex</h1>
 
 
@@ -22,6 +31,11 @@
 
     <div class="pokeBox" id="pokeBox">
 
+    </div>
+
+    <div id="movesContainer" style="display: none;">
+        <h2>Detalhes dos Golpes</h2>
+        <ul id="movesList"></ul>
     </div>
 
 

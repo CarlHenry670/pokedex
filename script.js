@@ -22,9 +22,6 @@ const colors = {
     dark: '#708090'
 }
 
-
-
-
 const pokeTypes = Object.keys(colors);
 
 let pokemons = [];
@@ -35,6 +32,7 @@ const fetchPokemon = async () => {
         pokemons.push(pokemon);
     }
     displayFilteredPokemon(pokemons);
+
 }
 
 const displayFilteredPokemon = (filteredPokemon) => {
@@ -78,10 +76,42 @@ const createPokeCard = (poke) => {
 
     pokeEl.innerHTML = pokeInnerHTML;
     pokeBox.appendChild(pokeEl);
+    pokeEl.addEventListener('click', () => {
+        updateNavbar(poke);
+    });
 }
 
 
+const updateNavbar = (pokemon) => {
+    const modal = document.getElementById('modal');
+    const pokemonInfo = document.getElementById('pokemonInfo');
+    const movesList = document.getElementById('movesList');
+    const pokemonInfoHTML = `
+        <h2>${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>    
+    `;
+    pokemonInfo.innerHTML = pokemonInfoHTML;
 
+    const filteredAndSortedMoves = pokemon.moves
+        .filter(move => move.version_group_details[0].level_learned_at > 0)
+        .sort((a, b) => a.version_group_details[0].level_learned_at - b.version_group_details[0].level_learned_at);
+    const movesListHTML = `
+        <h3>Golpes</h3>
+        <ul>
+            ${filteredAndSortedMoves.map(move => `<li>${move.move.name} (Nível: ${move.version_group_details[0].level_learned_at})</li>`).join('')}
+        </ul>
+    `;
+    movesList.innerHTML = movesListHTML;
+
+    modal.style.display = 'block';
+};
+
+const closeModal = () => {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+};
+
+
+// revisa isso plmds
 const searchPokemon = () => {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const foundPokemon = pokemons.find(pokemon => (
@@ -100,6 +130,5 @@ const searchPokemon = () => {
 document.querySelector('h1').addEventListener('click', function() {
     location.reload();
 });
-
 
 fetchPokemon();
