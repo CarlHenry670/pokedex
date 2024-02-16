@@ -82,11 +82,12 @@ const createPokeCard = (poke) => {
 }
 
 
-const updateNavbar = (pokemon) => {
+const updateNavbar = async (pokemon) => {
     const modal = document.getElementById('modal');
     const body = document.body;
     const pokemonInfo = document.getElementById('pokemonInfo');
     const movesList = document.getElementById('movesList');
+    const evolutionTree = document.getElementById('evolutionTree');
     const pokemonInfoHTML = `
         <h2>${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>    
     `;
@@ -104,16 +105,59 @@ const updateNavbar = (pokemon) => {
     movesList.innerHTML = movesListHTML;
 
     modal.style.display = 'block';
-    body.classList.add('no-scroll')
-};
+     body.classList.add('no-scroll')
+     await fetchEvolution(pokemon.id);};
 
 const closeModal = () => {
     const modal = document.getElementById('modal');
-    modal.style.display = 'none';
     const body = document.body;
+    const evolutionTree = document.getElementById('evolutionTree');
     modal.style.display = 'none';
-
     body.classList.remove('no-scroll');
+    evolutionTree.innerHTML = '';
+};
+
+const fetchEvolution = async (pokemonId) => {
+    const evolutionUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
+    const response = await fetch(evolutionUrl);
+    const data = await response.json();
+    const evolutionChainUrl = data.evolution_chain.url;
+    const evolutionData = await fetch(evolutionChainUrl);
+    const evolutionJson = await evolutionData.json();
+
+    displayEvolution(evolutionJson.chain);
+};
+
+const displayEvolution = (evolutionChain) => {
+    const evolutionList = document.getElementById('evolutionList');
+    evolutionList.innerHTML = '';
+    const evolutionHTML = `
+        <h3>Árvore de Evolução</h3>
+        <ul>
+            ${displayEvolutionRecursive(evolutionChain)}
+        </ul>
+    `;
+    evolutionList.innerHTML = evolutionHTML;
+};
+
+const displayEvolutionRecursive = (evolution) => {
+    let result = `<li>${evolution.species.name}`;
+
+    if (evolution.evolution_details.length > 0) {
+        const details = evolution.evolution_details[0];
+
+        if (details.min_level) {
+            result += ` (Nível: ${details.min_level})`;
+        } else if (details.item) {
+            result += ` (Usando ${details.item.name})`;
+        }
+    }
+    if (evolution.evolves_to.length > 0) {
+        result += `<ul>${evolution.evolves_to.map(displayEvolutionRecursive).join('')}</ul>`;
+    }
+
+    result += '</li>';
+    return result;
 };
 
 
