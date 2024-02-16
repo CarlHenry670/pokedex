@@ -84,6 +84,7 @@ const createPokeCard = (poke) => {
 
 const updateNavbar = (pokemon) => {
     const modal = document.getElementById('modal');
+    const body = document.body;
     const pokemonInfo = document.getElementById('pokemonInfo');
     const movesList = document.getElementById('movesList');
     const pokemonInfoHTML = `
@@ -103,11 +104,16 @@ const updateNavbar = (pokemon) => {
     movesList.innerHTML = movesListHTML;
 
     modal.style.display = 'block';
+    body.classList.add('no-scroll')
 };
 
 const closeModal = () => {
     const modal = document.getElementById('modal');
     modal.style.display = 'none';
+    const body = document.body;
+    modal.style.display = 'none';
+
+    body.classList.remove('no-scroll');
 };
 
 
