@@ -27,7 +27,7 @@ h1:hover {
 }
 
 body {
-    background: linear-gradient(to bottom, #ebedf5, #ececec);
+    background: linear-gradient(to right, #ebedf5, #ffffff);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,18 +61,19 @@ body {
 
 .pokemon:hover {
     transform: scale(1.04);
-    /* Ajuste o valor conforme desejado */
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 1);
+
 }
 
 .pokemon img {
     width: 95%;
+    
 }
 
 .pokeImg {
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(234, 233, 233);
     border-radius: 50%;
     box-shadow: 0 1px 6px 0 rgb(0, 0, 0);
+    
 }
 
 .upon {
@@ -80,7 +81,7 @@ body {
 }
 
 .number {
-    background-color: rgba(186, 186, 186, 1);
+    background-color: rgb(255, 255, 255);
     padding: 5px 9px;
     border-radius: 10px;
     font-weight: bold;
@@ -129,8 +130,9 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #123f63;
-    color: #ffffff;
+    background: linear-gradient(to right, #123f63, #4c4622ef);
+
+    color: #000000;
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
@@ -139,9 +141,11 @@ button:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     overflow-y: auto;
-    /* Adiciona uma barra de rolagem vertical quando o conteúdo ultrapassa a altura máxima */
     max-height: 500px;
-    /* Defina a altura máxima desejada */
+    scrollbar-color: #123f63 #ffffff;
+    scrollbar-width: thin;
+
+
 }
 
 .no-scroll {
@@ -149,11 +153,10 @@ button:hover {
 }
 
 .close {
-    position: absolute;
+
     right: 10px;
     font-size: 40px;
-    width: 40px;
-
+    width: 30px;
     cursor: pointer;
 }
 
@@ -169,12 +172,11 @@ button:hover {
     padding: 0;
     border-radius: 8px;
     margin-top: 20px;
-    color: blue;
     background-color: #123f63;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
+    filter: drop-shadow(0 0 0.2rem #777777);
     margin: 15px;
     padding: 15px;
-    width: 340px;
+    width: 240px;
     text-align: center;
     margin-bottom: 35px;
     cursor: pointer;
@@ -188,12 +190,17 @@ button:hover {
     font-weight: bold;
     border-radius: 10px;
 
+
 }
 
+
+
 .eee img {
-   
+
     width: 70%;
     align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 0 0.5rem #ffffff);
 }
 
 .eee h2.pokeName {
@@ -205,7 +212,7 @@ button:hover {
 }
 
 .eee h3.type {
-   
+
     color: #ffffff;
     font-size: 14px;
     margin-top: 10px;
@@ -230,69 +237,83 @@ button:hover {
 
 
 
-
-
-/* Estilo da lista de golpes */
-.moves-list h3 {
-    margin-bottom: 10px;
-    margin-top: 10px;
+.pokemon-info {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.moves-list ul {
-    list-style-type: none;
-    padding: 0;
+.moves-list,
+.evolution-list,
+.abilities-list,
+.type-advantages-list {
+    width: calc(25% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 20px;
     color: #FFCB05;
-    font-weight: bold;
+    background-color: #0a4678;
+    border-radius: 10px;;
 }
 
-.moves-list li {
-    margin-bottom: 5px;
-}
-
-/* Estilo da árvore de evolução */
-.evolution-list h3 {
-    margin-bottom: 10px;
-}
-
-.evolution-list ul {
-    list-style-type: none;
-    padding: 0;
-    color: #FFCB05;
-    font-weight: bold;
-}
-
-.evolution-list li {
-    margin-bottom: 5px;
-}
-
-/* Estilo da lista de habilidades */
-.abilities-list h3 {
-    margin-bottom: 10px;
-}
-
-.abilities-list ul {
-    list-style-type: none;
-    padding: 0;
-    color: #FFCB05;
-    font-weight: bold;
-}
-
-.abilities-list li {
-    margin-bottom: 5px;
-}
-
-/* Estilo da lista de vantagens e desvantagens */
+.moves-list h3,
+.evolution-list h3,
+.abilities-list h3,
 .type-advantages-list h3 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 900
 }
 
-.type-advantages-list ul {
-    list-style-type: none;
+strong {
+    color: #ffffff;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-decoration: underline;
+    margin-bottom: 12px;
+    margin-top: 5px;
+    display: block;
+
+}
+.evolution-list ul {
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0;
-    color: #FFCB05;
-    font-weight: bold;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 45px;
+
+
+}
+ .moves-list ul {
+    list-style:circle
+  
+}
+.abilities-list ul {
+   list-style: square;
+   text-align: center;
+}
+.type-advantages-list ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+.evolution-list li {
+    font-size: 16px;
+    text-align: center;
+    
 }
 
-.type-advantages-list li {
-    margin-bottom: 5px;
-}
