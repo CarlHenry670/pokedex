@@ -17,13 +17,13 @@
             <div class="pokemon-info" id="pokemonInfo"></div>
             <div class="moves-list" id="movesList"></div>
             <div class="evolution-list" id="evolutionList"></div>
+            <div class="abilities-list" id="abilitiesList"></div>
+            <div class="type-advantages-list" id="typeAdvantagesList"></div>
         </div>
     </div>
     
 
     <h1>Pokedex</h1>
-
-
     <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Buscar por nome ou ID">
         <button onclick="searchPokemon()">Buscar</button>
@@ -34,13 +34,9 @@
 
     </div>
 
-    <div id="movesContainer" style="display: none;">
-        <h2>Detalhes dos Golpes</h2>
-        <ul id="movesList"></ul>
-    </div>
-
-
-
+    <div class="pagination">
+        <button onclick="previousPage()">Anterior</button>
+        <button onclick="nextPage()">Próximo</button>
 
     <script src="script.js"></script>
 </body>

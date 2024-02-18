@@ -1,5 +1,5 @@
 const pokeBox = document.querySelector('#pokeBox');
-const pokeSize = 1150;
+const pokeSize = 150;
 
 const colors = {
     fire: '#FFA07A',
@@ -106,7 +106,10 @@ const updateNavbar = async (pokemon) => {
 
     modal.style.display = 'block';
      body.classList.add('no-scroll')
-     await fetchEvolution(pokemon.id);};
+     await fetchEvolution(pokemon.id);
+     await fetchAbilities(pokemon);
+     await fetchTypeAdvantages(pokemon);
+    };
 
 const closeModal = () => {
     const modal = document.getElementById('modal');
@@ -116,6 +119,133 @@ const closeModal = () => {
     body.classList.remove('no-scroll');
     evolutionTree.innerHTML = '';
 };
+const fetchTypeAdvantages = async (pokemon) => {
+    const typeAdvantagesList = document.getElementById('typeAdvantagesList');
+    typeAdvantagesList.innerHTML = '';
+    const typeAdvantagesHTML = `
+        <h3> Vantagens e Desvantagens </h3>
+        <ul>
+            ${getAdvantagesAndDisadvantages(pokemon.types)}
+        </ul>
+    `;
+    typeAdvantagesList.innerHTML = typeAdvantagesHTML;
+};
+
+const getAdvantagesAndDisadvantages = (types) => {
+    const result = [];
+
+    for (const type of types) {
+        const advantages = typeAdvantages[type.type.name]?.advantages || [];
+        const disadvantages = typeAdvantages[type.type.name]?.disadvantages || [];
+
+        result.push(`<li><strong>${type.type.name}:</strong>`);
+        result.push('<ul>');
+
+        if (advantages.length > 0) {
+            result.push(`<li>Vantagens contra: ${advantages.join(', ')}</li>`);
+        }
+
+        if (disadvantages.length > 0) {
+            result.push(`<li>Desvantagens contra: ${disadvantages.join(', ')}</li>`);
+        }
+
+        result.push('</ul></li>');
+    }
+
+    return result.join('');
+};
+
+const typeAdvantages = {
+    
+    fire: {
+        advantages: ['grass', 'bug', 'ice', 'steel'],
+        disadvantages: ['water', 'rock', 'fire']
+    },
+    grass: {
+        advantages: ['water', 'ground', 'rock'],
+        disadvantages: ['fire', 'grass', 'poison', 'flying', 'bug', 'steel']
+    },
+    electric: {
+        advantages: ['water', 'flying'],
+        disadvantages: ['electric', 'grass', 'dragon']
+    },
+    water: {
+        advantages: ['fire', 'ground', 'rock'],
+        disadvantages: ['water', 'grass', 'dragon']
+    },
+    ground: {
+        advantages: ['fire', 'electric', 'poison', 'rock', 'steel'],
+        disadvantages: ['grass', 'bug']
+    },
+    rock: {
+        advantages: ['fire', 'ice', 'flying', 'bug'],
+        disadvantages: ['fighting', 'ground', 'steel']
+    },
+    fairy: {
+        advantages: ['fighting', 'dragon', 'dark'],
+        disadvantages: ['fire', 'poison', 'steel']
+    },
+    poison: {
+        advantages: ['grass', 'fairy'],
+        disadvantages: ['poison', 'ground', 'rock', 'ghost']
+    },
+    bug: {
+        advantages: ['grass', 'psychic', 'dark'],
+        disadvantages: ['fire', 'fighting', 'poison', 'flying', 'ghost', 'steel', 'fairy']
+    },
+    dragon: {
+        advantages: ['dragon'],
+        disadvantages: ['steel']
+    },
+    psychic: {
+        advantages: ['fighting', 'poison'],
+        disadvantages: ['psychic', 'steel']
+    },
+    flying: {
+        advantages: ['grass', 'fighting', 'bug'],
+        disadvantages: ['electric', 'rock', 'steel']
+    },
+    fighting: {
+        advantages: ['normal', 'ice', 'rock', 'dark', 'steel'],
+        disadvantages: ['poison', 'flying', 'psychic', 'bug', 'fairy']
+    },
+    normal: {
+        advantages: [],
+        disadvantages: ['rock', 'steel']
+    },
+    ice: {
+        advantages: ['grass', 'ground', 'flying', 'dragon'],
+        disadvantages: ['fire', 'water', 'ice', 'steel']
+    },
+    ghost: {
+        advantages: ['psychic', 'ghost'],
+        disadvantages: ['dark']
+    },
+    steel: {
+        advantages: ['ice', 'rock', 'fairy'],
+        disadvantages: ['fire', 'water', 'electric', 'steel']
+    },
+    dark: {
+        advantages: ['psychic', 'ghost'],
+        disadvantages: ['fighting', 'dark', 'fairy']
+    }
+   
+};
+
+
+
+const fetchAbilities = async (pokemon) => {
+    const abilitiesList = document.getElementById('abilitiesList');
+    abilitiesList.innerHTML = '';
+    const abilitiesHTML = `
+        <h3>Habilidades</h3>
+        <ul>
+            ${pokemon.abilities.map(ability => `<li>${ability.ability.name}</li>`).join('')}
+        </ul>
+    `;
+    abilitiesList.innerHTML = abilitiesHTML;
+};
+
 
 const fetchEvolution = async (pokemonId) => {
     const evolutionUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`;
@@ -159,7 +289,6 @@ const displayEvolutionRecursive = (evolution) => {
     result += '</li>';
     return result;
 };
-
 
 // revisa isso plmds
 const searchPokemon = () => {
