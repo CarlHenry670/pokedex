@@ -89,8 +89,15 @@ const updateNavbar = async (pokemon) => {
     const movesList = document.getElementById('movesList');
     const evolutionTree = document.getElementById('evolutionTree');
     const pokemonInfoHTML = `
-        <h2>${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>    
-    `;
+    <section class="eee">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" alt="${pokemon.name}">
+        <h2 class="pokeName">${pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>
+        <h3 class="type">Tipo: ${pokemon.types.map(type => type.type.name).join('/')}</h3>
+        <h3 class = "pokeHeight">Altura: ${pokemon.height / 10}m</h3>
+        <h3 class = "pokeWeight">Peso: ${pokemon.weight / 10}kg</h3>
+    </section>
+`;
+
     pokemonInfo.innerHTML = pokemonInfoHTML;
 
     const filteredAndSortedMoves = pokemon.moves
@@ -123,7 +130,7 @@ const fetchTypeAdvantages = async (pokemon) => {
     const typeAdvantagesList = document.getElementById('typeAdvantagesList');
     typeAdvantagesList.innerHTML = '';
     const typeAdvantagesHTML = `
-        <h3> Vantagens e Desvantagens </h3>
+        <h3> Poder </h3>
         <ul>
             ${getAdvantagesAndDisadvantages(pokemon.types)}
         </ul>
@@ -159,7 +166,7 @@ const typeAdvantages = {
     
     fire: {
         advantages: ['grass', 'bug', 'ice', 'steel'],
-        disadvantages: ['water', 'rock', 'fire']
+        disadvantages: ['water', 'rock', 'fire'],
     },
     grass: {
         advantages: ['water', 'ground', 'rock'],
@@ -303,9 +310,7 @@ const searchPokemon = () => {
     } else {
         displayFilteredPokemon(pokemons);
     }
-}
-
-
+};
 document.querySelector('h1').addEventListener('click', function() {
     location.reload();
 });

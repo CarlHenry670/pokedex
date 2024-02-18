@@ -18,11 +18,12 @@ h1 {
     display: inline-block;
     cursor: pointer;
     transition: 0.3s;
-    
+
 }
 
 h1:hover {
-    transform: scale(1.04); /* Ajuste o valor conforme desejado */
+    transform: scale(1.04);
+    /* Ajuste o valor conforme desejado */
 }
 
 body {
@@ -40,7 +41,7 @@ body {
     justify-content: space-between;
     margin: 0 auto;
     max-width: 1200px;
- 
+
 }
 
 
@@ -59,7 +60,8 @@ body {
 }
 
 .pokemon:hover {
-    transform: scale(1.04); /* Ajuste o valor conforme desejado */
+    transform: scale(1.04);
+    /* Ajuste o valor conforme desejado */
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 1);
 }
 
@@ -112,7 +114,7 @@ button {
 button:hover {
     background-color: #123f63;
     color: #FFCB05;
-    transform: scale(1.01); 
+    transform: scale(1.01);
 
 }
 
@@ -127,31 +129,170 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #ffffff;
-    max-width: 600px;
+    background-color: #123f63;
+    color: #ffffff;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-y: auto;
+    /* Adiciona uma barra de rolagem vertical quando o conteúdo ultrapassa a altura máxima */
+    max-height: 500px;
+    /* Defina a altura máxima desejada */
 }
 
 .no-scroll {
     overflow: hidden;
 }
+
 .close {
     position: absolute;
     right: 10px;
     font-size: 40px;
     width: 40px;
- 
+
     cursor: pointer;
 }
+
 .close:hover {
-  
+
     color: rgb(255, 0, 0);
-  
+
+}
+
+.eee {
+    /* card quando clica no pkm */
+
+    padding: 0;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: blue;
+    background-color: #123f63;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
+    margin: 15px;
+    padding: 15px;
+    width: 340px;
+    text-align: center;
+    margin-bottom: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+
+}
+
+.eee img {
+   
+    width: 70%;
+    align-items: center;
+}
+
+.eee h2.pokeName {
+
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.eee h3.type {
+   
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.eee h3.pokeWeight {
+
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.eee h3.pokeHeight {
+
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 
 
 
+
+/* Estilo da lista de golpes */
+.moves-list h3 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.moves-list ul {
+    list-style-type: none;
+    padding: 0;
+    color: #FFCB05;
+    font-weight: bold;
+}
+
+.moves-list li {
+    margin-bottom: 5px;
+}
+
+/* Estilo da árvore de evolução */
+.evolution-list h3 {
+    margin-bottom: 10px;
+}
+
+.evolution-list ul {
+    list-style-type: none;
+    padding: 0;
+    color: #FFCB05;
+    font-weight: bold;
+}
+
+.evolution-list li {
+    margin-bottom: 5px;
+}
+
+/* Estilo da lista de habilidades */
+.abilities-list h3 {
+    margin-bottom: 10px;
+}
+
+.abilities-list ul {
+    list-style-type: none;
+    padding: 0;
+    color: #FFCB05;
+    font-weight: bold;
+}
+
+.abilities-list li {
+    margin-bottom: 5px;
+}
+
+/* Estilo da lista de vantagens e desvantagens */
+.type-advantages-list h3 {
+    margin-bottom: 10px;
+}
+
+.type-advantages-list ul {
+    list-style-type: none;
+    padding: 0;
+    color: #FFCB05;
+    font-weight: bold;
+}
+
+.type-advantages-list li {
+    margin-bottom: 5px;
+}
