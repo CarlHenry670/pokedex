@@ -11,8 +11,8 @@ h1 {
     font-weight: bold;
     margin-top: 35px;
     margin-bottom: 50px;
-    color: #ff9b05;
-    -webkit-text-stroke: 5px #011558;
+    color: #9FE4E6;
+    -webkit-text-stroke: 5px #000000;
     padding: 10px;
     display: inline-block;
     cursor: pointer;
@@ -27,7 +27,7 @@ h1:hover {
 }
 
 body {
-    background-color: #5b8bfc;
+    background-color: #9ECDE6;
     color: #000000;
     display: flex;
     font-weight: bold;
@@ -119,8 +119,8 @@ input[type="text"] {
 
 button {
     padding: 10px;
-    background-color: #0e55f9;
-    color: #ffffff;
+    background-color: #9ee6d0e6;
+    color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -129,8 +129,8 @@ button {
 
 button:hover {
     
-    background-color: #0f0bd7;
-    color: #ffffff;
+    background-color: #9ee6d0b5;
+    color: #000000;
     transform: scale(1.01);
 
 }
@@ -146,7 +146,7 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #1b42a4;
+    background-color: #9fe4e6;
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
@@ -186,7 +186,7 @@ button:hover {
     padding: 0;
     border-radius: 8px;
     margin-top: 20px;
-    background-color: #183e98;
+    background-color: #9EE6D0;
     filter: drop-shadow(0 0 0.2rem #777777);
     margin: 15px;
     padding: 15px;
@@ -199,7 +199,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: #000000;
     font-size: 20px;
     font-weight: bold;
     border-radius: 10px;
@@ -211,12 +211,12 @@ button:hover {
     width: 70%;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 0 0.5rem #ffffff);
+    filter: drop-shadow(0 0 0.3rem #000000);
 }
 
 .eee h2.pokeName {
 
-    color: #ffffff;
+    color: #000000;
     font-size: 24px;
     margin-top: 10px;
     text-align: center;
@@ -224,7 +224,7 @@ button:hover {
 
 .eee h3.type {
 
-    color: #ffffff;
+    color: #000000;
     font-size: 14px;
     margin-top: 10px;
     text-align: center;
@@ -232,7 +232,7 @@ button:hover {
 
 .eee h3.pokeWeight {
 
-    color: #ffffff;
+    color: #000000;
     font-size: 14px;
     margin-top: 5px;
     text-align: center;
@@ -240,10 +240,11 @@ button:hover {
 
 .eee h3.pokeHeight {
 
-    color: #ffffff;
+    color: #000000;
     font-size: 14px;
     margin-top: 10px;
     text-align: center;
+
 }
 
 
@@ -264,11 +265,11 @@ button:hover {
     box-sizing: border-box;
     margin-bottom: 20px;
     padding: 20px;
-    color: #FFCB05;
-    background-color: #183e98;
-    filter: drop-shadow(0 0 0.2rem #777777);
+    color: #fc7f59;
+    background-color: #bdf7f9;
+    filter: drop-shadow(0 0 0.3rem #777777);
     border-radius: 10px;
-    ;
+   
 }
 
 @media only screen and (max-width: 768px) {
@@ -298,12 +299,12 @@ button:hover {
     margin-bottom: 20px;
     font-size: 20px;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
     font-weight: 900
 }
 
 strong {
-    color: #ffffff;
+    color: #000000;
     font-size: 17px;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
