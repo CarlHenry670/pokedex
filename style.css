@@ -7,14 +7,14 @@
 
 h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
-    font-size: 110px;
+    font-size: 80px;
     font-weight: bold;
     margin-top: 35px;
     margin-bottom: 50px;
-    color: #9FE4E6;
-    -webkit-text-stroke: 5px #000000;
+    color: #feee0f;
+    -webkit-text-stroke: 5px #04135d;
     padding: 10px;
-    display: inline-block;
+    display: auto;
     cursor: pointer;
     transition: 0.3s;
 
@@ -71,7 +71,7 @@ body {
     margin-bottom: 35px;
     cursor: pointer;
     transition: 0.3s;
-    
+
 }
 
 .pokemon:hover {
@@ -121,8 +121,8 @@ input[type="text"] {
 
 button {
     padding: 10px;
-    background-color: #9ee6d0e6;
-    color: #000000;
+    background-color: #04135d;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -130,9 +130,9 @@ button {
 }
 
 button:hover {
-    
-    background-color: #9ee6d0b5;
-    color: #000000;
+
+    background-color: #152a93;
+    color: #ffffff;
     transform: scale(1.01);
 
 }
@@ -149,7 +149,7 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #9fe4e6;
+    background-color: #ffffff;
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
@@ -219,6 +219,7 @@ button:hover {
     justify-content: center;
     filter: drop-shadow(0 0 0.3rem #000000);
 }
+
 .eee h2.pokeName {
 
     color: #000000;
@@ -274,7 +275,7 @@ button:hover {
     background-color: #bdf7f9;
     filter: drop-shadow(0 0 0.3rem #777777);
     border-radius: 10px;
-   
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -359,4 +360,3 @@ strong {
     text-align: center;
 
 }
-
