@@ -17,8 +17,6 @@ h1 {
     display: auto;
     cursor: pointer;
     transition: 0.3s;
-
-
 }
 
 h1:hover {
@@ -34,6 +32,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+
+
 }
 
 .pokeBox {
@@ -149,7 +150,7 @@ button:hover {
 }
 
 .modal-content {
-    background-color: #ffffff;
+    background-color: #d6fbfa;
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
@@ -360,3 +361,4 @@ strong {
     text-align: center;
 
 }
+
